@@ -15,6 +15,8 @@ const navItems = [
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [atTop, setAtTop] = useState(true);
+    const skipRestoreScroll = useRef(false);
 
 
     const previousScrollY = useRef(0);
@@ -26,7 +28,11 @@ export const Navbar = () => {
             document.body.classList.add("overflow-hidden");
         } else {
             document.body.classList.remove("overflow-hidden");
-            window.scrollTo(0, previousScrollY.current);
+            // Only restore scroll if not navigating to #hero
+            if (!skipRestoreScroll.current) {
+                window.scrollTo(0, previousScrollY.current);
+            }
+            skipRestoreScroll.current = false; // Reset after closing menu
         }
         return () => document.body.classList.remove("overflow-hidden");
     }, [isMenuOpen]);
@@ -34,8 +40,10 @@ export const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
+            setAtTop(window.scrollY === 0);
         };
         window.addEventListener("scroll", handleScroll);
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
     return (
@@ -64,6 +72,8 @@ export const Navbar = () => {
                         </a>
                     ))}
                 </div>
+
+                {/* Mobile Menu Button*/}
                 <button 
                     onClick={() => setIsMenuOpen((prev) => !prev)} 
                     className="md:hidden p-2 text-foreground z-50"
@@ -77,11 +87,12 @@ export const Navbar = () => {
             {/* Mobile Menu */}
             
 
-            <div className={cn(
-                "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-                "transition-all duration-300 md:hidden",
-                isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-            )}>
+            <div 
+                className={cn(
+                    "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center mobile-menu md:hidden",
+                    isMenuOpen && atTop ? "mobile-menu-visible" : "mobile-menu-hidden"
+                )}
+            >
                 <div className="mb-8">
                     <ThemeToggle mobile size={100}/>
                 </div>
@@ -94,7 +105,10 @@ export const Navbar = () => {
                             href={item.href} 
                             key={key} 
                             className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => {
+                                skipRestoreScroll.current = true;
+                                setIsMenuOpen(false);
+                            }}
                         >
                             {item.name}
                         </a>

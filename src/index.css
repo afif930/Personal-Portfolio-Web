@@ -160,3 +160,18 @@
   padding: 0;
   text-align: center;
 }
+
+.mobile-menu {
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1), opacity 0.3s;
+  will-change: transform, opacity;
+}
+.mobile-menu-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-40px);
+}
+.mobile-menu-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
