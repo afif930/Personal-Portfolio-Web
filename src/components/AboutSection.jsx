@@ -11,19 +11,21 @@ export const AboutSection = () => {
                     About <span className="text-primary"> Me</span>
                 </h2>
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     {/* About Text */}
-                    <div className="space-y-6">
-                        <h3 className="text-2xl font-semibold">Passionate Developer & Designer</h3>
+                    <div className="space-y-8">
+                        <h3 className="text-4xl font-semibold">Developer with a Physics Background</h3>
 
                         <p className="text-muted-foreground">
-                            I'm a physics undergrad with a passion for coding and design. 
-                            From building chatbots to crafting user interfaces, I love bringing ideas to life through technology.
+                            I’m a physics undergraduate with a strong interest in software development. 
+                            I enjoy building practical tools—from AI-powered chatbots to lightweight desktop utilities—
+                            and I focus on writing clean, logical code that solves real problems.
                         </p>
 
                         <p className="text-muted-foreground">
-                            I've worked on diverse projects, honing my skills in problem-solving and creative thinking.
-                            Whether it's developing a new feature or designing a sleek interface, I thrive on challenges that push me to learn and grow.
+                            Most of my projects revolve around Python, web development, and automation. 
+                            I like working on small to medium-sized builds where I can iterate quickly, 
+                            refine ideas, and turn them into functional, polished experiences.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -58,8 +60,8 @@ export const AboutSection = () => {
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">Web & Desktop App Development</h4>
                                     <p className="text-muted-foreground">
-                                        Building responsive and dynamic web applications using modern frameworks, 
-                                        and crafting efficient desktop applications.
+                                        Building responsive web apps and efficient desktop tools using Python, FastAPI, 
+                                        React, and CustomTkinter. I focus on clean logic, usability, and maintainable code.
                                     </p>
                                 </div>
                             </div>
@@ -71,10 +73,10 @@ export const AboutSection = () => {
                                     <User className="h-6 w-6 text-primary"/>
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                                    <h4 className="font-semibold text-lg">UI/UX Design Support</h4>
                                     <p className="text-muted-foreground">
-                                        Designing intuitive and engaging user interfaces, 
-                                        focusing on user experience and visual aesthetics.
+                                        Designing simple, intuitive interfaces to support the apps I build. 
+                                        My focus is clarity, accessibility, and turning functionality into a smooth user experience.
                                     </p>
                                 </div>
                             </div>
@@ -88,8 +90,8 @@ export const AboutSection = () => {
                                 <div className="text-left">
                                     <h4 className="font-semibold text-lg">Project Management</h4>
                                     <p className="text-muted-foreground">
-                                        Experienced in managing projects from concept to completion, 
-                                        ensuring timely delivery and quality outcomes.
+                                        Organising features, structuring development flow, and breaking problems 
+                                        into manageable steps to ensure projects move efficiently from concept to completion.
                                     </p>
                                 </div>
                             </div>

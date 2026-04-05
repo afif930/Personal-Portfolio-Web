@@ -20,8 +20,7 @@ export const HeroSection = () => {
                     </span>
                 </h1>
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                    a physics undergrad exploring code, design, and creative problem-solving. 
-                    I’ve built chatbots, designed interfaces, and love bringing ideas to life.
+                    a physics undergrad who loves turning ideas into real, usable tools — from AI chatbots to clean, intuitive interfaces.
                 </p>
                 <div className="animate-fade-in-delay-4 opacity-0 pt-4">
                     <a href="#projects" className="cosmic-button">

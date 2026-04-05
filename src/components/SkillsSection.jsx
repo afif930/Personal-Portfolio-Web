@@ -1,30 +1,32 @@
 import { useState } from "react";
 import { cn } from "../lib/utils";
+import { SkillDots } from "./SkillDots";
 
 
 const skills = [
     // Programming Languages
-    {name:"Python", level: 80, category: "languages"},
-    {name:"HTML", level: 75, category: "languages"},
-    {name:"CSS", level: 50, category: "languages"},
-    {name:"Arduino", level: 45, category: "languages"},
+    {name:"Python", level: 2, category: "languages"},
+    {name:"HTML", level: 1, category: "languages"},
+    {name:"CSS", level: 1, category: "languages"},
+    {name:"JavaScript", level: 1, category: "languages"},
+    {name:"Arduino (C/C++)", level: 2, category: "languages"},
 
-    //Frameworks & Libraries
-    {name:"FastAPI", level: 70, category: "frameworks"},
-    {name:"LangChain", level: 65, category: "frameworks"},
-    {name:"ChromaDB", level: 70, category: "frameworks"},
-    {name:"React", level: 60, category: "frameworks"},
-    {name:"Next.js", level: 55, category: "frameworks"},
-    {name:"Tailwind CSS", level: 50, category: "frameworks"},
+    // Frameworks & Libraries
+    {name:"FastAPI", level: 2, category: "frameworks"},
+    {name:"LangChain", level: 1, category: "frameworks"},
+    {name:"ChromaDB", level: 1, category: "frameworks"},
+    {name:"React", level: 1, category: "frameworks"},
+    {name:"Next.js", level: 1, category: "frameworks"},
+    {name:"Tailwind CSS", level: 1, category: "frameworks"},
 
-    //Tools
-    {name:"Docker", level: 55, category: "tools"},
-    {name:"Git & GitHub", level: 50, category: "tools"},
-    {name:"Selenium", level: 60, category: "tools"},
-    {name:"Deep Translator & LangDetect", level: 65, category: "tools"},
-    {name:"VS Code", level: 65, category: "tools"},
+    // Tools
+    {name:"Docker", level: 1, category: "tools"},
+    {name:"Git & GitHub", level: 2, category: "tools"},
+    {name:"Selenium Automation", level: 1, category: "tools"},
+    {name:"Multilingual NLP Pipeline", level: 1, category: "tools"},
+];
 
-]
+
 
 const categories = ["all", "languages", "frameworks", "tools"];
 
@@ -64,17 +66,9 @@ export const SkillsSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredSkills.map((skill, key) => (
                     <div key={key} className="bg-card p-6 rounded-lg shadow-xs card-hover">
-                        <div className="text-left mb-4">
+                        <div className="flex justify-between items-center">
                             <h3 className="font-semibold text-lg">{skill.name}</h3>
-                        </div>
-                        <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                            <div 
-                                className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]" 
-                                style={{width: skill.level + "%"}}
-                            />
-                        </div>
-                        <div className="text-right mt-1">
-                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                            <SkillDots className="h-10 w-10" level={skill.level} />
                         </div>
                     </div>
                 ))}
